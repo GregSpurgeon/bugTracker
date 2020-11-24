@@ -1,0 +1,39 @@
+<button><a href='/login/'>Login</a></button>
+<button><a href="/ticketform/">Create a Ticket</a></button>
+{% if request.user.is_authenticated %}
+<hr>
+<h2>New Tickets</h2>
+  {% for ticket in ticket_new %}
+  <pre>
+    <span><a href="/tickets/{{ ticket.id }}">{{ ticket.title }}</a>--Filed By--<a href="/myuser/{{ ticket.user_who_filed.id }}">{{ ticket.user_who_filed }}</a></span>
+  </pre>
+  {% endfor %}
+<hr>
+<h2>Tickets In Progress</h2>
+  {% for ticket in ticket_inprogress %}
+  <pre>
+    <span><a href="/tickets/{{ ticket.id }}">{{ ticket.title }}</a>--assigned to--<a href="/myuser/{{ ticket.assigned_user_ticket.id }}">{{ ticket.assigned_user_ticket }}</a></span>
+   
+  </pre>
+  {% endfor %}
+
+<hr>
+<h2>Completed Tickets</h2>
+  {% for ticket in ticket_done %}
+  <pre>
+    <span><a href="/tickets/{{ ticket.id }}">{{ ticket.title }}</a>--Completed by--<a href="/myuser/{{ ticket.user_who_completed.id }}">{{ ticket.user_who_completed }}</a></span>
+  </pre>
+  {% endfor %}
+<hr>
+
+<h2>Invalid Tickets </h2>
+  {% for ticket in ticket_invalid %}
+  <pre>
+    <span><a href="/tickets/{{ ticket.id }}">{{ ticket.title }}</a></span>
+  </pre>
+  {% endfor %}
+<hr>
+
+
+<button><a href='/logout/'>Logout</a></button>
+{% endif %}

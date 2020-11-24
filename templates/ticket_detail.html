@@ -1,0 +1,14 @@
+<h1>{{ ticket.title }}</h1>
+<h3>{{ ticket.date_time_filed }}</h3>
+<h3>{{ ticket.description }}</h3>
+<h3>User who submitted ticket: {{ ticket.user_who_filed }}</h3>
+<h3>Status: {{ ticket.ticket_status_choice }}</h3>
+<h3>Ticket assigned to: {{ ticket.assigned_user_ticket }}</h3>
+<h3>Ticket completed by: {{ ticket.user_who_completed }}</h3>
+<button><a href="/edit/{{ ticket.id}}/">Edit this Ticket</a></button>
+<button><a href='/status_done/{{ticket.id}}/'>Change status to done</a></button>
+<button><a href='/assignticket/{{ticket.id}}/'>Assign Ticket</a></button>
+<button><a href='/status_invalid/{{ticket.id}}/'>Change status to Invalid</a></button>
+<button><a href='/status_new/{{ticket.id}}/'>Change status to New</a></button>
+<hr>
+<button><a href="/">Home</a></button>

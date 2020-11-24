@@ -1,0 +1,28 @@
+<h1>{{ myuser.username }}</h1>
+<hr>
+<h3>Filed Tickets</h3>
+
+  {% for ticket in tickets %}
+  <pre>
+    <span><a href="/tickets/{{ticket.id}}">{{ ticket.title }}</span></a>
+  </pre>
+  {%endfor%}
+  <hr>
+
+
+<h3>Assigned tickets</h3>
+  {% for ticket in tickets1 %}
+  <pre>
+    <span><a href="/tickets/{{ticket.id}}">{{ ticket.title }}</span></a>
+  </pre>
+  {%endfor%}
+<hr>
+<h3>Completed Tickets</h3>
+  {% for ticket in tickets2 %}
+  <pre>
+    <span><a href="/tickets/{{ticket.id}}">{{ ticket.title }}</span></a>
+  </pre>
+  {%endfor%}
+<hr>
+<br>
+<button><a href="/">Home</a></button>
